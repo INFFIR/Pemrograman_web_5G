@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAKTIKUM</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Menyertakan file CSS -->
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">(^^)</h1>
+            <div class="menu-icon" id="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="menu-right" id="menu">
+                <ul>
+                    <li><a href="#">Menu 1</a></li>
+                    <li><a href="#">Menu 2</a></li>
+                    <li><a href="#">Menu 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+
+
+
+        
+                        <!-- Sidebar / Navigation -->
+            <div class="container">
+                <nav class="sidebar">
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Cari</a></li>
+                        <li><a href="#">Jelajahi</a></li>
+                        <li><a href="#">Reels</a></li>
+                        <li><a href="#">Pesan</a></li>
+                        <li><a href="#">Notifikasi</a></li>
+                        <li><a href="#">Buat</a></li>
+                        <li><a href="#">Profil</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+
+
+
+
+
+
+        
+
+        <!-- Feed Section -->
+        <section class="feed">
+            <div class="stories">
+                <!-- Tempat untuk stories pengguna -->
+                <div><img src="img/Profile.jpg" alt="Post Image" class="story-item">
+                    <p class="">nama
+                    </p>
+                </div>
+                <div><img src="img/Profile.jpg" alt="Post Image" class="story-item">
+                    <p class="">nama
+                    </p>
+                </div>
+                <div><img src="img/Profile.jpg" alt="Post Image" class="story-item">
+                    <p class="">nama
+                    </p>
+                </div>
+                <div><img src="img/Profile.jpg" alt="Post Image" class="story-item">
+                    <p class="">nama
+                    </p>
+                </div>
+                <div><img src="img/Profile.jpg" alt="Post Image" class="story-item">
+                    <p class="">nama
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Posts -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/profile.jpg" alt="Profile Image">
+                    <span>Username</span>
+                </div>
+                <img src="img/post.png" alt="Post Image" class="post-image">
+                <p>     DESKRIPSI</p>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/Profile.jpg" alt="Profile Image">
+                    <span>Username2</span>
+                </div>
+                <img src="img/post.png" alt="Post Image" class="post-image">
+                <p>     DESKRIPSI</p>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/profile.jpg" alt="Profile Image">
+                    <span>Username</span>
+                </div>
+                <img src="img/post.png" alt="Post Image" class="post-image">
+                <p>     DESKRIPSI</p>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/Profile.jpg" alt="Profile Image">
+                    <span>Username2</span>
+                </div>
+                <img src="img/post.png" alt="Post Image" class="post-image">
+                <p>     DESKRIPSI</p>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- Right Sidebar -->
+        <div class="container">
+            <aside class="right-sidebar">
+                <h3>FRIEND</h3>
+                <ul>
+                    <li><a href="#">FIREND 1</a></li>
+                    <li><a href="#">FRIEND 2</a></li>
+                    <li><a href="#">FRIEND 3</a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="bubble-text"><a href="#">!</a></div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        // Script untuk toggle menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
