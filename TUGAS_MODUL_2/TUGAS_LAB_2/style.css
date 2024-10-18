@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Memberikan batas lebar maksimum agar responsif */
+    text-align: center; /* Memastikan konten dalam container terpusat secara horizontal */
+}
+
+input {
+    display: block;
+    width: calc(100% - 20px); /* Mengurangi padding agar lebih presisi */
+    margin: 10px auto; /* Agar input berada di tengah */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    width: calc(100% - 20px); /* Mengatur lebar tombol agar seragam dengan input */
+}
+
+.btn-sum {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: white;
+}
+
+.result {
+    margin-top: 10px;
+    text-align: center;
+}

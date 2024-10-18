@@ -1,0 +1,115 @@
+/* Mengatur gaya halaman To Do List */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Menghapus margin default */
+    padding: 40px; /* Menambahkan padding di sekitar body */
+    background-image: linear-gradient(to bottom right, #6c4cf1, #a052c7, #f5d3ff);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Kontainer utama */
+.todo-app {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Menggunakan persentase agar responsif */
+    max-width: 400px; /* Tetap menjaga batas maksimum */
+    min-width: 300px; /* Lebar minimum kontainer */
+    margin: auto; /* Mengatur margin otomatis untuk pusat */
+}
+
+/* Judul */
+.todo-app h1 {
+    text-align: center;
+    color: #1f1e33;
+}
+
+/* Input task */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #6c4cf1; /* Warna tombol ungu */
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a3fd1; /* Warna lebih gelap saat di-hover */
+}
+
+/* Daftar task */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Tombol centang dan hapus */
+.check-button, .delete-button {
+    background-color: #6c4cf1;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.check-button:hover, .delete-button:hover {
+    background-color: #5a3fd1;
+}
+
+li.completed {
+    background-color: #d3d3d3; /* Warna abu-abu saat task selesai */
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 600px) {
+    body {
+        padding: 20px; /* Mengurangi padding pada perangkat kecil */
+    }
+
+    .todo-app {
+        padding: 10px; /* Mengurangi padding pada kontainer */
+    }
+
+    input[type="text"], button {
+        font-size: 1em; /* Mengurangi ukuran font untuk input dan tombol */
+    }
+
+    button {
+        padding: 8px; /* Mengurangi padding pada tombol untuk ruang yang lebih baik */
+    }
+}
