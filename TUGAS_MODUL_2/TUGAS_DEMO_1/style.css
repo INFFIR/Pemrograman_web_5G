@@ -27,6 +27,13 @@ body {
     cursor: move;
 }
 
+/* Media Query untuk layar besar */
+@media (min-width: 768px) {
+    .calculator {
+        width: auto; /* Lebar kalkulator menjadi dua kali lipat */
+        min-height: auto; /* Tinggi kalkulator juga bisa diatur sesuai kebutuhan */
+    }
+}
 
 /* Tampilan layar kalkulator */
 .calculator-screen {
@@ -94,5 +101,3 @@ body {
 .wide {
     grid-column: span 2;
 }
-
-

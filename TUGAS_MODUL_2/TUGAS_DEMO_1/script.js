@@ -2,13 +2,22 @@
 const screen = document.getElementById('calculator-screen');
 const buttons = document.querySelectorAll('.button');
 
-// Variabel untuk menyimpan input dan formula
+
+
+
+
 let formula = ''; // Menyimpan formula inputan
+
+
+
 
 // Fungsi untuk memperbarui layar kalkulator
 function updateScreen(value) {
     screen.value = value;
 }
+
+
+
 
 // Fungsi untuk menangani input tombol angka dan operator
 function handleInput(value) {
@@ -20,6 +29,9 @@ function handleInput(value) {
     }
     updateScreen(formula);
 }
+
+
+
 
 // Fungsi untuk menghitung hasil
 function calculate() {
@@ -34,11 +46,18 @@ function calculate() {
     }
 }
 
+
+
+
+
 // Fungsi untuk menghapus semua input
 function clearAll() {
     formula = '0';
     updateScreen(formula);
 }
+
+
+
 
 // Fungsi untuk mengubah nilai positif/negatif
 function toggleSign() {
@@ -49,6 +68,9 @@ function toggleSign() {
     }
     updateScreen(formula);
 }
+
+
+
 
 // Menambahkan event listener untuk setiap tombol
 buttons.forEach(button => {
@@ -70,6 +92,9 @@ buttons.forEach(button => {
     });
 });
 
+
+
+
 // Mendapatkan elemen kalkulator untuk bisa digeser
 const calculator = document.querySelector('.calculator');
 
@@ -82,6 +107,9 @@ const calculator = document.querySelector('.calculator');
 let isDragging = false;
 let offsetX, offsetY;
 
+
+
+
 // Fungsi untuk memulai drag
 calculator.addEventListener('mousedown', function(e) {
     isDragging = true;
@@ -89,6 +117,9 @@ calculator.addEventListener('mousedown', function(e) {
     offsetY = e.clientY - calculator.offsetTop;
     calculator.style.cursor = 'grabbing'; // Ubah kursor saat di-drag
 });
+
+
+
 
 // Fungsi untuk menangani pergerakan kalkulator
 document.addEventListener('mousemove', function(e) {
@@ -112,6 +143,10 @@ document.addEventListener('mousemove', function(e) {
         calculator.style.top = `${posY}px`;
     }
 });
+
+
+
+
 
 // Fungsi untuk menghentikan drag
 document.addEventListener('mouseup', function() {
