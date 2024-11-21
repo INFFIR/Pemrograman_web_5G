@@ -1,0 +1,213 @@
+<!-- frontend/admin/admin.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Manage</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel - Manage</h1>
+
+        <!-- === Category Management === -->
+        <section id="manage-categories">
+            <h2>Manage Categories</h2>
+
+            <div id="category-message" class="message"></div>
+
+            <!-- Add Category Form -->
+            <form id="add-category-form">
+                <label for="category_name">Category Name:</label>
+                <input type="text" id="category_name" name="category_name" required>
+
+                <label for="category_description">Description:</label>
+                <textarea id="category_description" name="category_description" rows="3"></textarea>
+
+                <button type="submit">Add Category</button>
+            </form>
+
+            <!-- Categories Table -->
+            <table id="categories-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Categories will be populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- === Banner Management === -->
+        <section id="manage-banners">
+            <h2>Manage Banners</h2>
+
+            <div id="banner-message" class="message"></div>
+
+            <!-- Add Banner Form -->
+            <form id="add-banner-form" enctype="multipart/form-data">
+                <label for="banner_image">Banner Image:</label>
+                <input type="file" id="banner_image" name="banner_image" accept="image/*" required>
+
+                <label for="banner_alt_text">Alt Text:</label>
+                <input type="text" id="banner_alt_text" name="banner_alt_text">
+
+                <label for="banner_active">
+                    <input type="checkbox" id="banner_active" name="banner_active" checked>
+                    Active
+                </label>
+
+                <button type="submit">Add Banner</button>
+            </form>
+
+            <!-- Banners Table -->
+            <table id="banners-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Alt Text</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Banners will be populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- === Product Management === -->
+        <section id="manage-products">
+            <h2>Manage Products</h2>
+
+            <div id="product-message" class="message"></div>
+
+            <!-- Add Product Form -->
+            <form id="add-product-form" enctype="multipart/form-data">
+                <label for="product_name">Product Name:</label>
+                <input type="text" id="product_name" name="product_name" required>
+
+                <label for="product_description">Description:</label>
+                <textarea id="product_description" name="product_description" rows="3"></textarea>
+
+                <label for="product_price">Price (Rp.):</label>
+                <input type="text" id="product_price" name="product_price" required>
+
+                <label for="product_category">Category:</label>
+                <select id="product_category" name="product_category" required>
+                    <option value="">Select Category</option>
+                    <!-- Categories will be populated here -->
+                </select>
+
+                <label for="product_image">Product Image:</label>
+                <input type="file" id="product_image" name="product_image" accept="image/*">
+
+                <button type="submit">Add Product</button>
+            </form>
+
+            <!-- Products Table -->
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price (Rp.)</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Products will be populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- === Modals === -->
+
+        <!-- Edit Category Modal -->
+        <div id="editCategoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeCategoryModal">&times;</span>
+                <h2>Edit Category</h2>
+                <form id="edit-category-form">
+                    <input type="hidden" id="edit_category_id" name="edit_category_id">
+
+                    <label for="edit_category_name">Category Name:</label>
+                    <input type="text" id="edit_category_name" name="edit_category_name" required>
+
+                    <label for="edit_category_description">Description:</label>
+                    <textarea id="edit_category_description" name="edit_category_description" rows="3"></textarea>
+
+                    <button type="submit">Update Category</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Banner Modal -->
+        <div id="editBannerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeBannerModal">&times;</span>
+                <h2>Edit Banner</h2>
+                <form id="edit-banner-form" enctype="multipart/form-data">
+                    <input type="hidden" id="edit_banner_id" name="edit_banner_id">
+
+                    <label for="edit_banner_alt_text">Alt Text:</label>
+                    <input type="text" id="edit_banner_alt_text" name="edit_banner_alt_text">
+
+                    <label for="edit_banner_image">Banner Image (Leave blank to keep existing):</label>
+                    <input type="file" id="edit_banner_image" name="edit_banner_image" accept="image/*">
+
+                    <label for="edit_banner_active">
+                        <input type="checkbox" id="edit_banner_active" name="edit_banner_active">
+                        Active
+                    </label>
+
+                    <button type="submit">Update Banner</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Product Modal -->
+        <div id="editProductModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeProductModal">&times;</span>
+                <h2>Edit Product</h2>
+                <form id="edit-product-form" enctype="multipart/form-data">
+                    <input type="hidden" id="edit_product_id" name="edit_product_id">
+
+                    <label for="edit_product_name">Product Name:</label>
+                    <input type="text" id="edit_product_name" name="edit_product_name" required>
+
+                    <label for="edit_product_description">Description:</label>
+                    <textarea id="edit_product_description" name="edit_product_description" rows="3"></textarea>
+
+                    <label for="edit_product_price">Price (Rp.):</label>
+                    <input type="text" id="edit_product_price" name="edit_product_price" required>
+
+                    <label for="edit_product_category">Category:</label>
+                    <select id="edit_product_category" name="edit_product_category" required>
+                        <option value="">Select Category</option>
+                        <!-- Categories akan dipopulasi di sini -->
+                    </select>
+
+                    <label for="edit_product_image">Product Image (Leave blank to keep existing):</label>
+                    <input type="file" id="edit_product_image" name="edit_product_image" accept="image/*">
+
+                    <button type="submit">Update Product</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

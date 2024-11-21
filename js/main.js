@@ -147,15 +147,6 @@ async function loadCategories() {
         if (!response.ok) throw new Error('Gagal mengambil kategori');
         const categories = await response.json();
 
-        // Tambahkan tombol "All"
-        const allButton = document.createElement('button');
-        allButton.classList.add('category-btn');
-        allButton.setAttribute('data-category', '');
-        allButton.innerHTML = `
-            <h3>All</h3>
-            <p>All products</p>
-        `;
-        categoriesContainer.appendChild(allButton);
 
         categories.forEach(category => {
             const button = document.createElement('button');

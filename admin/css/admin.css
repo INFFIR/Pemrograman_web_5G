@@ -1,0 +1,166 @@
+/* frontend/admin/css/admin.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button.btn-delete {
+    background-color: #dc3545;
+}
+
+button.btn-delete:hover {
+    background-color: #c82333;
+}
+
+button.btn-edit {
+    background-color: #007bff;
+    margin-right: 5px;
+}
+
+button.btn-edit:hover {
+    background-color: #0069d9;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px; /* Could be more or less, depending on screen size */
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
