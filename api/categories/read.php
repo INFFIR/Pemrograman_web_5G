@@ -21,12 +21,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
-// Ambil semua kategori
 try {
-    $stmt = $pdo->prepare("SELECT * FROM categories");
-    $stmt->execute();
-    $categories = $stmt->fetchAll();
-    echo json_encode($categories);
+    if (isset($_GET['id'])) {
+        // Ambil kategori berdasarkan ID
+        $id = intval($_GET['id']);
+        $stmt = $pdo->prepare("SELECT * FROM categories WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $category = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($category) {
+            echo json_encode($category);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Category not found']);
+        }
+    } else {
+        // Ambil semua kategori
+        $stmt = $pdo->prepare("SELECT * FROM categories");
+        $stmt->execute();
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($categories);
+    }
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => 'An error occurred']);

@@ -24,20 +24,39 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 // Basis URL untuk gambar
 $base_url = "http://localhost:8000/"; // Ganti dengan domain dan port backend Anda
 
-// Ambil semua produk
 try {
-    $stmt = $pdo->prepare("SELECT products.*, categories.name AS category_name FROM products LEFT JOIN categories ON products.category_id = categories.id");
-    $stmt->execute();
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (isset($_GET['id'])) {
+        // Ambil produk berdasarkan ID
+        $id = intval($_GET['id']);
+        $stmt = $pdo->prepare("SELECT products.*, categories.name AS category_name FROM products LEFT JOIN categories ON products.category_id = categories.id WHERE products.id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Tambahkan URL lengkap untuk gambar
-    foreach ($products as &$product) {
-        if (isset($product['image_path'])) {
-            $product['image_url'] = $base_url . $product['image_path'];
+        if ($product) {
+            if (isset($product['image_path'])) {
+                $product['image_url'] = $base_url . $product['image_path'];
+            }
+            echo json_encode($product);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Product not found']);
         }
-    }
+    } else {
+        // Ambil semua produk
+        $stmt = $pdo->prepare("SELECT products.*, categories.name AS category_name FROM products LEFT JOIN categories ON products.category_id = categories.id");
+        $stmt->execute();
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    echo json_encode($products);
+        // Tambahkan URL lengkap untuk gambar
+        foreach ($products as &$product) {
+            if (isset($product['image_path'])) {
+                $product['image_url'] = $base_url . $product['image_path'];
+            }
+        }
+
+        echo json_encode($products);
+    }
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => 'An error occurred']);
