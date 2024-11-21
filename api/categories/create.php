@@ -2,8 +2,8 @@
 // backend/api/categories/create.php
 header('Content-Type: application/json');
 
-// Atur CORS
-header("Access-Control-Allow-Origin: http://127.0.0.1:5500"); // Ganti dengan domain frontend Anda
+// Set CORS headers
+header("Access-Control-Allow-Origin: http://127.0.0.1:5500"); // Update as needed
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
@@ -14,17 +14,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 require_once '../../includes/db_connect.php';
 
-// Cek metode request
+// Only allow POST method
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
     exit();
 }
 
-// Ambil data JSON
-$data = json_decode(file_get_contents('php://input'), true);
+// Determine Content-Type
+$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
-if (!isset($data['name'])) {
+// Initialize data array
+$data = [];
+
+// Parse input based on Content-Type
+if (strpos($contentType, 'application/json') !== false) {
+    // Handle JSON input
+    $rawInput = file_get_contents('php://input');
+    $data = json_decode($rawInput, true);
+    
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        http_response_code(400);
+        echo json_encode([
+            'error' => 'Invalid JSON',
+            'json_error' => json_last_error_msg(),
+            'raw_input' => $rawInput
+        ]);
+        exit();
+    }
+} elseif (strpos($contentType, 'application/x-www-form-urlencoded') !== false) {
+    // Handle URL-encoded form data
+    $data = $_POST;
+} else {
+    // Unsupported Content-Type
+    http_response_code(415);
+    echo json_encode(['error' => 'Unsupported Media Type']);
+    exit();
+}
+
+// Validate 'name'
+if (!isset($data['name']) || empty(trim($data['name']))) {
     http_response_code(400);
     echo json_encode(['error' => 'Category name is required']);
     exit();
@@ -33,7 +62,7 @@ if (!isset($data['name'])) {
 $name = trim($data['name']);
 $description = isset($data['description']) ? trim($data['description']) : '';
 
-// Insert ke database
+// Insert into database
 try {
     $stmt = $pdo->prepare("INSERT INTO categories (name, description) VALUES (?, ?)");
     $stmt->execute([$name, $description]);
@@ -46,6 +75,8 @@ try {
     } else {
         http_response_code(500);
         echo json_encode(['error' => 'An error occurred']);
+        // Optionally log the error
+        error_log("Database Error: " . $e->getMessage());
     }
 }
 ?>
