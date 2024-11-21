@@ -1,0 +1,16 @@
+# backend/.htaccess
+
+# Deny access to all files by default
+<FilesMatch "\.(php)$">
+    Require all denied
+</FilesMatch>
+
+# Allow access to API endpoints
+<Directory "/api">
+    Require all granted
+</Directory>
+
+# Allow access to db_connect.php
+<Files "db_connect.php">
+    Require all granted
+</Files>
