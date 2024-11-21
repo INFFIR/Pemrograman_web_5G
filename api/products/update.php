@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // Atur CORS
-header("Access-Control-Allow-Origin: http://localhost:8000"); // Ganti dengan domain frontend Anda
+header("Access-Control-Allow-Origin: http://127.0.0.1:5500"); // Ganti dengan domain frontend Anda
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
