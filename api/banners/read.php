@@ -21,11 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
+// Basis URL untuk gambar
+$base_url = "http://localhost:8000/"; // Ganti dengan domain dan port backend Anda
+
 // Ambil semua banner
 try {
     $stmt = $pdo->prepare("SELECT * FROM banners");
     $stmt->execute();
-    $banners = $stmt->fetchAll();
+    $banners = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Tambahkan URL lengkap untuk gambar
+    foreach ($banners as &$banner) {
+        if (isset($banner['image_path'])) {
+            $banner['image_url'] = $base_url . $banner['image_path'];
+        }
+    }
+
     echo json_encode($banners);
 } catch (PDOException $e) {
     http_response_code(500);

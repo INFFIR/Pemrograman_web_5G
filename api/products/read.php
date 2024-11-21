@@ -21,11 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
+// Basis URL untuk gambar
+$base_url = "http://localhost:8000/"; // Ganti dengan domain dan port backend Anda
+
 // Ambil semua produk
 try {
     $stmt = $pdo->prepare("SELECT products.*, categories.name AS category_name FROM products LEFT JOIN categories ON products.category_id = categories.id");
     $stmt->execute();
-    $products = $stmt->fetchAll();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Tambahkan URL lengkap untuk gambar
+    foreach ($products as &$product) {
+        if (isset($product['image_path'])) {
+            $product['image_url'] = $base_url . $product['image_path'];
+        }
+    }
+
     echo json_encode($products);
 } catch (PDOException $e) {
     http_response_code(500);
