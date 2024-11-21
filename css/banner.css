@@ -1,0 +1,98 @@
+/* CSS Tambahan untuk Banner Slideshow */
+
+/* Pastikan container memiliki posisi relatif */
+.banner-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Container slider menggunakan flexbox */
+.banner-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    position: relative;
+    height: 300px; /* Sesuaikan dengan tinggi gambar */
+}
+
+/* Definisikan keyframes untuk animasi slide */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Setiap slide mengambil lebar penuh container */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Tampilkan slide yang aktif dengan animasi slideIn */
+.slide.active {
+    opacity: 1;
+    position: relative;
+    animation: slideIn 0.5s forwards;
+}
+
+/* Animasi saat slide tidak aktif */
+.slide:not(.active) {
+    animation: slideOut 0.5s forwards;
+}
+
+/* Gaya untuk gambar dalam slide */
+.banner-slider img {
+    width: 100%;
+    max-width: 1000px; /* Menyesuaikan dengan kategori */
+    height: 300px; /* Menetapkan tinggi tetap untuk konsistensi */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto; /* Pusatkan gambar secara horizontal */
+}
+
+/* (Opsional) Gaya untuk Indikator Slideshow */
+.banner-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 1);
+}

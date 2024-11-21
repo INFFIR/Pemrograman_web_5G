@@ -1,0 +1,66 @@
+.categories-section {
+    background: #f7f9fc; /* Latar belakang terang untuk menyatu */
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.categories-section .categories {
+    display: flex;
+    justify-content: center; /* Menjadikan elemen berada di tengah */
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    max-width: 1200px; /* Menentukan lebar maksimal */
+    margin-left: auto; /* Untuk centering secara horizontal */
+    margin-right: auto; /* Untuk centering secara horizontal */
+}
+
+.categories-section .category-btn {
+    background: #ffffff;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    max-width: 300px; /* Menentukan lebar maksimal tiap kategori */
+    text-align: center;
+    margin: 1rem; /* Menambahkan margin untuk memberi jarak antara elemen */
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.categories-section .category-btn h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.categories-section .category-btn p {
+    color: #555;
+    margin: 0;
+}
+
+.categories-section .category-btn:hover {
+    box-shadow: 0 0 10px 4px rgba(74, 144, 226, 0.6), 
+                0 0 15px 4px rgba(106, 115, 255, 0.6);
+}
+
+.categories-section .category-btn.active {
+    background: linear-gradient(90deg, #4a90e2, #6a73ff);
+    color: #ffffff; /* Mengubah warna teks menjadi putih agar kontras dengan latar belakang */
+}
+
+.categories-section .category-btn.active h3,
+.categories-section .category-btn.active p {
+    color: #ffffff; /* Pastikan teks di dalam tombol juga berwarna putih */
+}
+
+@media (max-width: 768px) {
+    .categories-section .category-btn {
+        width: 45%; /* Lebar lebih kecil untuk perangkat mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-section .category-btn {
+        width: 100%; /* Lebar penuh untuk perangkat kecil */
+    }
+}

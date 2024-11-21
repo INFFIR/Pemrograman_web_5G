@@ -1,0 +1,97 @@
+/* normalize.css */
+
+/* Reset CSS dasar untuk menghilangkan gaya bawaan browser */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mengatur font dan warna dasar untuk body */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f7f9fc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gaya default untuk header */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #222;
+}
+
+/* Gaya default untuk paragraf */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Gaya default untuk list */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya default untuk link */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Gaya default untuk button */
+button {
+    background: transparent;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Mengatur container layout dengan centering */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Grid system dasar */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+}
+
+.col {
+    flex: 1 1 0;
+    padding: 0.5rem;
+}
+
+.col-6 {
+    flex: 1 1 50%;
+}
+
+.col-4 {
+    flex: 1 1 33.333%;
+}
+
+.col-3 {
+    flex: 1 1 25%;
+}
+
+/* Media query untuk memastikan responsivitas */
+@media (max-width: 768px) {
+    .col {
+        flex: 1 1 100%;
+    }
+}

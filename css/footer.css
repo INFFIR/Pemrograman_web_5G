@@ -1,0 +1,8 @@
+.footer {
+    padding: 20px;
+    background: linear-gradient(90deg, #4a90e2, #6a73ff); /* Sama seperti header */
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 20vh;
+}

@@ -1,0 +1,105 @@
+/* Reset Box Sizing untuk Konsistensi */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontainer Utama */
+.products-section {
+    background: #f7f9fc;
+    min-height: 40vh;
+    height: auto;
+    max-height: 150vh;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Kontainer Produk */
+.products-section .products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Kotak Produk */
+.products-section .product {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    max-width: 300px;
+    text-align: center;
+    margin: 1rem;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+}
+
+/* Kontainer Gambar */
+.products-section .product .image-container {
+    flex: 2; /* Menetapkan proporsi 2 dari 3 untuk gambar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Gambar Produk */
+.products-section .product .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Menjaga proporsi gambar tanpa memotong */
+    border-radius: 4px;
+}
+
+/* Kontainer Teks */
+.products-section .product .text-container {
+    flex: 1; /* Menetapkan proporsi 1 dari 3 untuk teks */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    /* Menghapus latar belakang */
+    background-color: transparent;
+    /* Mencegah teks bergeser jika konten gambar kecil */
+    min-height: 80px; /* Sesuaikan sesuai kebutuhan */
+}
+
+/* Teks Produk - Judul */
+.products-section .product .text-container .product-title {
+    margin: 0.2rem 0;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    word-wrap: break-word; /* Membungkus teks jika terlalu panjang */
+}
+
+/* Teks Produk - Harga */
+.products-section .product .text-container .product-price {
+    margin: 0.2rem 0;
+    color: #555;
+    font-size: 1rem;
+    word-wrap: break-word; /* Membungkus teks jika terlalu panjang */
+}
+
+/* Efek Hover pada Kotak Produk */
+.products-section .product:hover {
+    box-shadow: 0 0 10px 4px rgba(74, 144, 226, 0.6), 
+                0 0 15px 4px rgba(106, 115, 255, 0.6);
+}
+
+/* Responsif untuk Layar Lebih Kecil */
+@media (max-width: 768px) {
+    .products-section .product {
+        width: 90%;
+    }
+}

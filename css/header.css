@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #4a90e2, #6a73ff); /* Gradasi biru ungu lembut */
+    color: #fff;
+}
+
+.header .logo {
+    width: 50px;
+    border-radius: 50px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.header input[type="text"] {
+    padding: 10px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1; /* Memungkinkan input menggunakan sisa ruang yang tersedia */
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.header nav ul li {
+    margin-left: 20px;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header nav ul li a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,76 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    /* Menyembunyikan scrollbar */
+    -ms-overflow-style: none; /* IE dan Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Menyembunyikan scrollbar untuk Chrome, Safari dan Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Pastikan tidak ada overflow hidden di sini jika ingin tetap bisa scroll */
+}
+
+/* Gaya Umum */
+.section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+main {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+section {
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
